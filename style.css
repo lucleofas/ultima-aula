@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+
+header {
+    height: 60px;
+    background-color: #3347b0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+}
+
+.logo {
+    height: 45px;
+}
+
+.sair {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: white;
+    font-size: 14px;
+}
+
+.sair img {
+    width: 20px;
+}
+
+
+/* MAIN */
+
+main {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 30px 60px;
+}
+
+
+/* DESCRIÇÃO */
+
+.descricao {
+    width: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    color: #444;
+
+    font-size: 32px;
+    font-weight: 300;
+}
+
+
+/* CURSOS */
+
+.cursos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cursos button {
+    width: 230px;
+    height: 80px;
+
+    border: none;
+
+    background-color: #3347b0;
+    color: white;
+
+    font-size: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+}
+
+.cursos button img {
+    width: 35px;
+}
+
+
+/* ALUNOS */
+
+main.alunos {
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 100%;
+}
+
+.aluno-card-container {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    gap: 15px;
+}
+
+
+/* FOOTER */
+
+footer {
+    height: 70px;
+
+    background-color: #3347b0;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+}
+
+
+/* CONTATOS */
+
+.contatos {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    font-size: 9px;
+}
+
+.contatos div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+/* AUTOR */
+
+.autor {
+    font-size: 8px;
+    text-align: center;
+}
+
+
+/* REDES */
+
+.redes-sociais {
+    display: flex;
+    gap: 6px;
+}
+
+.redes-sociais a {
+    width: 25px;
+    height: 25px;
+
+    border: 1px solid white;
+    border-radius: 50%;
+
+    color: white;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 0 15px;
+    }
+
+    main {
+        flex-direction: column;
+        gap: 30px;
+
+        padding: 30px 15px;
+    }
+
+    .descricao {
+        width: 100%;
+        text-align: center;
+        font-size: 28px;
+    }
+
+    .cursos button {
+        width: 220px;
+        height: 70px;
+        font-size: 22px;
+    }
+
+    footer {
+        height: auto;
+        padding: 15px;
+
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
