@@ -1,35 +1,72 @@
-import { getAlunos } from "./servico.js"
+import { getAlunos } from './servico.js';
 
-function criarCard(alunos){
-    const card = document.createElement('div')
-    card.className = 'aluno-card'
+// Função para carregar os alunos
+export async function carregarAlunos() {
+    const main = document.getElementById('main');
 
-    const foto = document.createElement('img')
-    foto.src = alunos.foto
+    try {
+        // Buscar os dados dos alunos da API
+        const listaAlunos = await getAlunos();
 
-    const nomeAluno = document.createElement('h3')
-    nomeAluno.textContent = alunos.nome
+        // Criar os cards dos alunos
+        const cardAlunos = listaAlunos.map(criarCard);
 
-    card.append(foto, nomeAluno)
+        // Substituir o conteúdo do <main> pelos cards
+        main.replaceChildren(...cardAlunos);
+    } catch (error) {
+        console.error('Erro ao carregar os alunos:', error);
 
-
+        // Exibir mensagem de erro no <main>
+        main.innerHTML = '<p>Erro ao carregar os alunos. Tente novamente mais tarde.</p>';
+    }
 }
 
-export async function carregarAlunos(){
-    const main = document.getElementById('main')
-    main.className = 'alunos'
+// Função para criar um card de aluno
+function criarCard(aluno) {
+    const card = document.createElement('div');
+    card.className = 'aluno-card';
 
-    const titulo = document.createElement('h2')
-    titulo.className = 'aluno-titulo'
-    titulo.textContent = 'Desenvolvimento de Sistemas'
+    const foto = document.createElement('img');
+    foto.src = aluno.foto || './img/default.png'; // Imagem padrão caso não tenha foto
+    foto.alt = `Foto de ${aluno.nome}`;
 
-    const cardContainer = document.createElement('div')
-    cardContainer.className = 'aluno-card-container'
+    const nomeAluno = document.createElement('h3');
+    nomeAluno.textContent = aluno.nome;
 
-    const listaAlunos = await getAlunos()
-    const cardAlunos = listaAlunos.map(criarCard)
+    // Adicionar evento de clique no card
+    card.onclick = () => mostrarDesempenho(aluno);
 
-    cardContainer.replaceChildren(...cardAlunos)
-    main.replaceChildren(titulo, cardContainer)
+    card.append(foto, nomeAluno);
+
+    return card; // Retorna o card criado
 }
 
+// Função para mostrar o desempenho do aluno
+function mostrarDesempenho(aluno) {
+    const main = document.getElementById('main');
+
+    // Criar a seção de desempenho
+    const desempenhoSection = document.createElement('div');
+    desempenhoSection.className = 'desempenho-section';
+
+    const titulo = document.createElement('h2');
+    titulo.textContent = `Desempenho de ${aluno.nome}`;
+
+    // Verificar se o desempenho está disponível
+    const desempenho = document.createElement('p');
+    if (aluno.desempenho) {
+        desempenho.textContent = `Desempenho: ${aluno.desempenho[0].valor}`;
+        console.log(aluno.desempenho)
+    } else {
+        desempenho.textContent = 'Desempenho não disponível.';
+    }
+
+    const voltarButton = document.createElement('button');
+    voltarButton.textContent = 'Voltar';
+    voltarButton.onclick = carregarAlunos; // Volta para a lista de alunos
+
+    desempenhoSection.append(titulo, desempenho, voltarButton);
+
+    // Substituir o conteúdo do <main> pela seção de desempenho
+    main.replaceChildren(desempenhoSection);
+}

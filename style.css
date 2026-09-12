@@ -41,18 +41,6 @@ header {
 }
 
 
-/* MAIN */
-
-main {
-    flex: 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    padding: 30px 60px;
-}
-
 
 /* DESCRIÇÃO */
 
@@ -221,5 +209,108 @@ footer {
         gap: 15px;
     }
 }
+/* Estilo atualizado para o main */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Aumenta o espaçamento entre os cards */
+    padding: 40px; /* Ajusta o espaçamento interno */
+    background-color: #f9f9f9; /* Fundo mais claro para destacar os cards */
+}
 
+/* Estilo atualizado para os cards dos alunos */
+.aluno-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 220px; /* Largura maior para os cards */
+    height: 300px; /* Altura maior para os cards */
+    border: 1px solid #ddd; /* Borda mais clara */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
+    background-color: #ffffff; /* Fundo branco */
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s; /* Animação ao passar o mouse */
+}
 
+/* Efeito ao passar o mouse nos cards */
+.aluno-card:hover {
+    transform: translateY(-5px); /* Eleva o card */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+}
+
+/* Estilo para a imagem do aluno */
+.aluno-card img {
+    width: 120px; /* Imagem maior */
+    height: 120px;
+    border-radius: 50%; /* Mantém a imagem circular */
+    margin-top: 20px; /* Espaçamento superior */
+    border: 3px solid #3347b0; /* Borda azul ao redor da imagem */
+}
+
+/* Estilo para o nome do aluno */
+.aluno-card h3 {
+    font-size: 1.4rem; /* Tamanho maior para o texto */
+    color: #3347b0; /* Cor azul para o nome */
+    margin: 10px 0; /* Espaçamento superior e inferior */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+/* Estilo para o botão dentro do card (se necessário) */
+.aluno-card button {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #3347b0;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.aluno-card button:hover {
+    background-color: #2a3a8c; /* Cor mais escura ao passar o mouse */
+}
+/* Estilo para a seção de desempenho */
+/* Estilo para a seção de desempenho */
+.desempenho-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.desempenho-section h2 {
+    font-size: 1.8rem;
+    color: #3347b0;
+}
+
+.desempenho-section p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.desempenho-section button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #3347b0;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.desempenho-section button:hover {
+    background-color: #2a3a8c;
+}

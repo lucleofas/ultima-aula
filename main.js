@@ -1,8 +1,15 @@
+import { carregarHome } from "./home.js";
+import { carregarAlunos } from "./alunos.js";
 
-import { carregarHome } from "./home.js"
+const logo = document.getElementById('logo');
+const dsButton = document.querySelector('.ds-button'); // Botão para carregar alunos
 
-const logo = document.getElementById('logo')
+logo.onclick = carregarHome;
 
-logo.onclick = carregarHome
+// Adicionar evento ao botão "DS"
+if (dsButton) {
+    dsButton.onclick = carregarAlunos;
+}
 
-carregarHome()
+// Carregar a página inicial por padrão
+carregarHome();
